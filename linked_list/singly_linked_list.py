@@ -1,3 +1,7 @@
+from calendar import c
+from re import A
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -120,3 +124,13 @@ class LinkedList:
             prev_1.next = curr_2
         else:
             self.head = curr_2
+
+    def reverse_iterative(self):
+        prev = None
+        cur = self.head
+        while cur:
+            nxt = cur.next
+            cur.next = prev
+            prev = cur
+            cur = nxt
+        self.head = prev
